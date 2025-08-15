@@ -13,6 +13,10 @@ class User(BaseModel):
     name:str
     age:int
 
+@app.get("/userdetails")
+def get_all_users():
+    return {"users": user_db}
+    
 @app.put("/user_db/data/v1/update/{user_id}")
 def user_update(user_id:int, user:User):
     if user_id in user_db:
